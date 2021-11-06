@@ -1,0 +1,11 @@
+.input-container {
+    display: flex;
+}
+
+.amount-dropdown {
+    flex-shrink: 3;
+}
+
+main > .container {
+    padding: 60px 15px 0;
+}
