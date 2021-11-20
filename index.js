@@ -26,11 +26,12 @@ function update_unit(e) {
         other_unit = "unit1";
     }
     let options = document.getElementById(other_unit).options;
-    for (i in options) {
-        // Hiding the selected option in the other unit picker,
-        // displaying all the others.
-        options[i].hidden = options[i].value == e. value;
-    }
+    // Hiding the selected option in the other unit picker,
+    // displaying all the others.
+    // Disabling it until we have a <-> button
+    // for (i in options) {
+    //     options[i].hidden = options[i].value == e. value;
+    // }
 }
 
 // Convert n from unit1 to unit2
@@ -61,6 +62,13 @@ let eur_price = async () => {
     const res = await response.json(); //extract JSON from the http response
     let eur_btc = new Big(res["data"]["amount"].toString());
     btc_conversion["EUR"] = eur_btc;
+
+    let opt = document.createElement("option");
+    opt.innerHTML = "EUR";
+    document.getElementById("unit1").appendChild(opt);
+    opt = document.createElement("option");
+    opt.innerHTML = "EUR";
+    document.getElementById("unit2").appendChild(opt);
 };
 
 let usd_price = async () => {
@@ -68,6 +76,13 @@ let usd_price = async () => {
     const res = await response.json(); //extract JSON from the http response
     let usd_btc = new Big(res["data"]["amount"].toString());
     btc_conversion["USD"] = usd_btc;
+
+    let opt = document.createElement("option");
+    opt.innerHTML = "USD";
+    document.getElementById("unit2").appendChild(opt);
+    opt = document.createElement("option");
+    opt.innerHTML = "USD";
+    document.getElementById("unit1").appendChild(opt);
 };
 
 eur_price();

@@ -6,4 +6,4 @@ Convert between BTC units and FIAT directly in your browser! [Live demo](https:/
 
 ☢️ Contains Javascript
 
-💔 Likely broken. Don't trust it too much.
+💔 Likely broken (especially floating point math!). Don't trust it too much.
